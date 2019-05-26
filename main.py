@@ -20,9 +20,9 @@ client = c.Client(contractID, url)
 assert(client.result)
 
 firstBlock = client.findFirstContractBlock()
-hashes = client.getHashes(firstBlock)
+hashes = client.getHashes(firstBlock) # tuple of hashes
 
-if not hashes:
+if not hashes[0] or not hashes[1]:
     print("Problem finding transaction.")
 else:
     print("Block:", hashes[0])
